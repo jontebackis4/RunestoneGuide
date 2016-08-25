@@ -263,7 +263,8 @@
 <li><a class="reference internal" href="#">Runestone Guide</a><ul>
 <li><a class="reference internal" href="#installera-python-och-runestone">1: Installera python och runestone</a></li>
 <li><a class="reference internal" href="#skapa-nytt-projekt">2: Skapa nytt projekt</a></li>
-<li><a class="reference internal" href="#redigera-och-skapa-bok">3: Redigera och skapa bok</a></li>
+<li><a class="reference internal" href="#redigera-och-skriva-bok">3: Redigera och skriva bok</a></li>
+<li><a class="reference internal" href="#bygga-och-testa-projekt">4. Bygga och testa projekt</a></li>
 </ul>
 </li>
 </ul>
@@ -311,15 +312,18 @@
 </div>
 <div class="section" id="skapa-nytt-projekt">
 <h2>2: Skapa nytt projekt<a class="headerlink" href="#skapa-nytt-projekt" title="Permalink to this headline">¶</a></h2>
+<p>Kör du MacOS eller Unix borde denna länk förklara hur du skapar ett nytt projekt: <a class="reference external" href="http://reputablejournal.com/how-to-make-a-lab-in-three-easy-steps.html#.V73EwSiLSUk">http://reputablejournal.com/how-to-make-a-lab-in-three-easy-steps.html#.V73EwSiLSUk</a></p>
 <p>För att skapa ett nytt projekt börjar vi med att skapa en ny mapp för projektet någonstans på vår dator. Till denna mapp måste vi nu kopiera in <code class="docutils literal"><span class="pre">runestone.py</span></code> från mappen <strong>Scripts</strong> som vi installerade runestone i.</p>
 <p>Nu kan vi skapa ett nytt runestoneprojekt genom att i kommandotolken gå in i den nyskapade mappen och köra <code class="docutils literal"><span class="pre">runestone</span> <span class="pre">init</span></code>. Då ställs några frågor om inställningar för projektet. Det går bra att använda default-inställningarna genom att bara klicka enter. Vi måste dock välja ett projektnamn och här finns det en viktig sak att tänka på.</p>
 <p><strong>OBS! Man kanske inte kan använda å, ä, ö i projektnamn eller personnamn när man skapar nytt projekt.</strong></p>
-<p>När vi klickat oss igenom alla frågor kommer ett nytt projekt att skapas och vi får de filer vi behöver till vår projektmapp.</p>
+<p>När vi klickat oss igenom alla frågor kommer ett nytt projekt att skapas och vi får de filer vi behöver till vår projektmapp som borde innehålla allt nedan.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">_static</span>
 <span class="n">_sources</span>
 <span class="n">_templates</span>
 <span class="n">conf</span><span class="o">.</span><span class="n">py</span>
 <span class="n">pavement</span><span class="o">.</span><span class="n">py</span>
+
+<span class="n">runestone</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -330,11 +334,30 @@
 <li><code class="docutils literal"><span class="pre">pavement.py</span></code> används när vi bygger projektet.</li>
 </ul>
 </div>
-<div class="section" id="redigera-och-skapa-bok">
-<h2>3: Redigera och skapa bok<a class="headerlink" href="#redigera-och-skapa-bok" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="redigera-och-skriva-bok">
+<h2>3: Redigera och skriva bok<a class="headerlink" href="#redigera-och-skriva-bok" title="Permalink to this headline">¶</a></h2>
 <p>All kod för att skapa en bok ska ligga i mappen <code class="docutils literal"><span class="pre">_sources</span></code>. Till att börja med finns det en fil <code class="docutils literal"><span class="pre">index.rst</span></code> som innehåller en del exempelkod som kan hjälpa för att sätta igång.</p>
 <p>Det går bra att dela upp projektet i flera filer och undermappar för att sedan koppla ihop dem med toctree.</p>
 <p>En indexfil som kopplar allt skulle då kunna se ut såhär:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+        <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
+
+        <span class="n">kap1</span><span class="o">.</span><span class="n">rst</span>
+        <span class="n">kap2</span><span class="o">.</span><span class="n">rst</span>
+        <span class="n">kap3</span><span class="o">/</span><span class="n">del1</span><span class="o">.</span><span class="n">rst</span>
+        <span class="n">kap3</span><span class="o">/</span><span class="n">del2</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+<p>Maxdepth bestämmer hur många nivåer av underrubriker som ska synas i innehållsförteckningen.</p>
+<p>Det språk som används för att skriva kod är <em>reStructuredText</em> (rst) och här är det en viktig sak att komma ihåg.</p>
+<p><strong>Precis som i python spelar indentering roll.</strong></p>
+<p>För att lära sig skriva böcker med runestone måste man förutom att lära sig rst-syntax även lära sig använda de komponenter som runestone har. Denna länk innehåller en översikt av de tillgängliga komponenter: <a class="reference external" href="http://interactivepython.org/runestone/static/overview/overview.html">http://interactivepython.org/runestone/static/overview/overview.html</a></p>
+<p>Det finns även påbörjade dokumentation för författare på <a class="reference external" href="http://runestoneinteractive.org/build/html/index.html">http://runestoneinteractive.org/build/html/index.html</a></p>
+<p>Ett annat sätt att lära sig mer om hur man skriver böcker är att kolla på exempelkoden som kommer med i indexfilen när vi skapar ett nytt projekt.</p>
+</div>
+<div class="section" id="bygga-och-testa-projekt">
+<h2>4. Bygga och testa projekt<a class="headerlink" href="#bygga-och-testa-projekt" title="Permalink to this headline">¶</a></h2>
+<p>När vi har någon kod som vi vill testa kan vi bygga projektet så att vi får en fin html-version. Använd kommandotolken och gå in i huvudmappen för projektet och kör där kommadot <code class="docutils literal"><span class="pre">runestone</span> <span class="pre">build</span></code>. Eventuella felmeddelanden eller varningar kommer då upp men förhoppningsvis blir det en <em>successful build</em>. Nu har en ny mapp <code class="docutils literal"><span class="pre">build</span></code> skapats i vårt projekt och inuti den hittar vi filen <code class="docutils literal"><span class="pre">index.html</span></code> som kan öppnas i en webbläsare och där ser vi vår bok!</p>
 </div>
 </div>
 
